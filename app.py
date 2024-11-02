@@ -1,21 +1,20 @@
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
+from decimal import Decimal
+from score import calculate_score
+
 #Baseline Code
 @app.route("/")
 def home():
     return "Flask Home Page"
 
-@app.route("/getcode", methods=['GET'])
-def geoData():
+@app.route("/score", methods=['GET'])
+def score():
     #Extract location data/API Call
-    data = request.json()
-    location = data["results"][0]["geometry"]["location"]
-    address = request.args.get("address")
+    data = request.args
     return jsonify({
-        "address": address,
-        "latitude": location["lat"],
-        "longitude": location["lng"]
+        "score": calculate_score(int(data["prompt_id"]), [Decimal(data["latitude"]), Decimal(data["longitude"])])
     })
 
 if __name__ == "__main__":
