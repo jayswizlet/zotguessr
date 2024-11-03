@@ -16,4 +16,4 @@ picture_coordinates = {
 #   distance between coordinates
 def calculate_score(id, coord_guess):
     coord_pic = picture_coordinates[id]
-    return sqrt((Decimal(coord_pic[1]) - Decimal(coord_guess[1])) ** 2 + (Decimal(coord_pic[0]) - Decimal(coord_guess[0])) ** 2)
+    return Decimal(sqrt((Decimal(coord_pic[1]) - Decimal(coord_guess[1])) ** 2 + (Decimal(coord_pic[0]) - Decimal(coord_guess[0])) ** 2))
