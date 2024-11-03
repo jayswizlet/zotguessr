@@ -1,0 +1,4 @@
+supabase-py
+requests
+python-dotenv
+flask
