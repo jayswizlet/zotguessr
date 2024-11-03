@@ -14,12 +14,12 @@ supabase = create_client(supabase_url, supabase_key)
 
 def prompt_image(id):
     response = supabase.table('locations').select("url").eq("id", str(id)).execute()
-    print(response)
-    return response["data"][0]
+    #print(response)
+    return response["data"][0]["url"]
 
 import random
 numImages = 3
-numRows = 1
+numRows = 5
 def prompt_images():
     images = []
     ids = [-1]
