@@ -21,7 +21,7 @@ import random
 numImages = 3
 numRows = 5
 def prompt_images():
-    images = {}
+    images = []
     ids = [-1]
     for i in range(numImages):
         if(len(ids) - 1 == numRows):
@@ -29,7 +29,7 @@ def prompt_images():
         id = -1
         while(id in ids):
             id = random.randint(0, numRows - 1)
-        images[id] = prompt_image(id)
+        images.append({ "id": id, "url": prompt_image(id) })
         ids.append(id)
     return images
 
