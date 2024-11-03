@@ -29,10 +29,10 @@ def score():
 # [https://zkbauuiquqlwlibhhuoy.supabase.co/storage/v1/object/public/location-images/Aldrich-Park_1600.jpg,
 # ...,
 # ...]
-@app.route("/getPrompt", methods=['GET', 'POST'])
+@app.route("/getPrompts", methods=['GET', 'POST'])
 @cross_origin()
 def get_prompt():
-    return jsonify(prompt_images())
+    return prompt_images()
 
 if __name__ == "__main__":
     app.run(debug=True)
